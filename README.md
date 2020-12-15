@@ -19,20 +19,28 @@ As a pre-OIer, I'm also interested in math and algorithms.<br>
       Widely commended by chatbots.:wink:<br>
       <img src="./baike_demo.png" alt="baike_demo" style="zoom:50%" /><br><br>
       
-  3. (original)[Severus](https://github.com/1MLightyears/Severus/)<br>
+  3. (original)<a href="https://github.com/1mlightyears/clarisse/">Clarisse</a>
+  
+       A light-weighted, painless, quick-deploying Python program GUI framework.
+  
+       Create a GUI for your Python with only one line!
+  
+       <img src="./clarisse_demo.png" alt="clarisse_demo" style="zoom:50%" />
+  
+  4. (original)[Severus](https://github.com/1MLightyears/Severus/)<br>
        Small APP which "hides" an RAR archive inside an image.<br>
        Might be handy in some specific occasions... 🤔Don't do bad things!<br><br>
   
-  4. (original)[BHG](https://github.com/1MLightyears/BHG/)<br>
+  5. (original)[BHG](https://github.com/1MLightyears/BHG/)<br>
        The fastest way to create memes!<br>
        Free resources, highly customizaion, multiple language support, both interface for import & command line...<br>
        Maybe you have seen some memes created by BHG:sunglasses:<br>
        <img src="./CHALLENGE ACCEPTED.png" alt="bhg_demo" style="zoom:50%" /><br><br>
   
-  5. (original)[AuraProII](https://github.com/1MLightyears/AuraProII/)<br>
+  6. (original)[AuraProII](https://github.com/1MLightyears/AuraProII/)<br>
        A info gathering tool for online game EVEOnline.<br><br>
   
-  6. many other fun tools!<br><br>
+  7. many other fun tools!<br><br>
 - 📫 How to reach me: <br>
   Send EMail to [1MLightyears@gmail.com](mailto://1MLightyears@gmail.com/) <br>
   or [lightyearsyuan@qq.com](mailto://lightyearsyuan@qq.com/)<br><br>
