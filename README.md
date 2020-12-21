@@ -19,14 +19,12 @@ As a pre-OIer, I'm also interested in math and algorithms.<br>
       Widely commended by chatbots.:wink:<br>
       <img src="./baike_demo.png" alt="baike_demo" style="zoom:50%" /><br><br>
       
-  3. (original)<a href="https://github.com/1mlightyears/clarisse/">Clarisse</a>
-  
-       A light-weighted, painless, quick-deploying Python program GUI framework.
-  
-       Create a GUI for your Python with only one line!
-  
-       <img src="./clarisse_demo.png" alt="clarisse_demo" style="zoom:50%" />
-  
+  3. (original)<a href="https://github.com/1mlightyears/clarisse/">Clarisse</a><br>
+       A light-weighted, painless, quick-deploying Python program GUI framework.<br>
+       Create a GUI for your Python with only one line!<br>
+       No other modifications, simple custom switches, plenty guidance!<br>
+       <img src="./clarisse_demo.png" alt="clarisse_demo" style="zoom:50%" /><br><br>
+       
   4. (original)[Severus](https://github.com/1MLightyears/Severus/)<br>
        Small APP which "hides" an RAR archive inside an image.<br>
        Might be handy in some specific occasions... 🤔Don't do bad things!<br><br>
