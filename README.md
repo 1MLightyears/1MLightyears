@@ -38,7 +38,9 @@ As a pre-OIer, I'm also interested in math and algorithms.<br>
   6. (original)[AuraProII](https://github.com/1MLightyears/AuraProII/)<br>
        A info gathering tool for online game EVEOnline.<br><br>
   
-  7. many other fun tools!<br><br>
+  7. many other fun stuff!<br>
+  
+       check [Index.md](./Index.md) for them.<br>
 - 📫 How to reach me: <br>
   Send EMail to [1MLightyears@gmail.com](mailto://1MLightyears@gmail.com/) <br>
   or [lightyearsyuan@qq.com](mailto://lightyearsyuan@qq.com/)<br><br>
