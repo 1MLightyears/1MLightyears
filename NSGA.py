@@ -2,7 +2,11 @@
 """
 Created on Sat Apr  6 17:00:32 2019
 
+<<<<<<< HEAD
 @author:1MLightyears
+=======
+@author: 1MLightyears
+>>>>>>> 54a3231a83c3e96851d3cf81a14d50263cfd956c
 
 这是一个机器学习分组数据的算法，问题描述来自http://python.jobbole.com/82208/
 由于网页中给出的代码在Spyder中编译报错，因此我决定用别的算法来完成这个例子。

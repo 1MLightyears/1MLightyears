@@ -3,7 +3,9 @@
 The name is Yuan Songwei, also known as "1 Mil. Lightyears"(or Lightyears), a free, independent coder likes to write something fun!<br>
 I can speak zh-cn, en, ja.<br>
 Main developing language is Python & Pascal, but I can also code in lua & C/++.<br>
-Now I'm interested in developing pipelines with Python, including spiders, data gathering/analyzing, ML, etc.<br>
+Now I'm interested in developing pipelines with Python, including spiders, data gathering/mining/analyzing, ML, etc.<br>
+Also thinking of learning Java & Hadoop for big data development for a throughout pipeline of data engineering:thinking:<br>
+I have experience of High Performance Computing(HPC) & Cluster File System(Lustre) & Distributed File System(Lustre, NFS).
 As a pre-OIer, I'm also interested in math and algorithms.<br>
 - :open_file_folder: Some of my works:<br>
   1. (contributor)[latexify_py](https://github.com/google/latexify_py) 1.7k:star:!<br>
