@@ -2,7 +2,7 @@
 """
 Created on Sun Apr  7 20:26:10 2019
 
-@author: 袁崧巍
+@author:1MLightyears
 
 这是一个机器学习分组数据的算法，问题描述来自http://python.jobbole.com/82208/
 由于网页中给出的代码在Spyder中编译报错，因此我决定用别的算法来完成这个例子。
