@@ -1,9 +1,10 @@
-# 用 trails+Monte Carlo Tree Search解决 最短路径问题
+# 用 Monte Carlo Tree Search解决 寻路问题
 # by 1mlightyears@gmail.com
 # 20210215
 
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.animation as ani
 from fire import Fire
 from time import time
 from copy import deepcopy
@@ -48,8 +49,10 @@ class MCTS:
                     if (i == node.x) and (j == node.y):
                         have = True
                         break
-                self.C[i][j] = 2 if self.grid[i][j] else 3 if have\
-                    else 4 if self.visited[i][j] else 5
+                self.C[i][j] = 2 if have\
+                    else 3 if self.visited[i][j] else 5
+        for i,j in self.barriers:
+            self.C[i][j] = 4
         self.C[self.f[0]][self.f[1]] = 0
         self.C[self.t[0]][self.t[1]] = 1
 
@@ -62,8 +65,8 @@ class MCTS:
         """
         if (x, y) == self.t:
             return True
-        d, d_ = (abs(self.t[0] - x) + abs(self.t[1] - y)), \
-            (abs(self.t[0] - fr.x) + abs(self.t[1] - fr.y))
+        sign = (abs(self.t[0] - fr.x) + abs(self.t[1] - fr.y)) - \
+            (abs(self.t[0] - x) + abs(self.t[1] - y))
 
         # 权重函数
         # 1. 离终点越近的节点权重越高，离起点越近的函数权值越低
@@ -75,7 +78,7 @@ class MCTS:
         ln_weight = np.log(fr.weight)
 
         level = fr.level
-        weight = fr.weight * self.factor ** (d_ - d)
+        weight = fr.weight * self.factor ** sign
         if weight>self.base:
             level += 1
             weight /= self.base
@@ -95,8 +98,16 @@ class MCTS:
                b: list = [],
                sleep: float = 0.1,
                nograph: bool = False):
+        """
+        地图声明部分。
+        n,m(int):地图长宽。
+        f,t(tuple[int,int]):起点与终点。
+        b(list[tuple[int,int]]):地图中不可通行的障碍物。
+        sleep(float):控制试探间隔时间。
+        nograph(bool):不显示可视化窗口。
+        """
 
-        self.grid = np.array([[False for j in range(m)] for i in range(n)])
+        self.visited = np.array([[False for j in range(m)] for i in range(n)])
         self.n = n
         self.m = m
         self.f = f
@@ -104,20 +115,21 @@ class MCTS:
         self.sleep = sleep
         self.nograph = nograph
         for i in b:
-            self.grid[i[0]][i[1]] = True
-        seed = int(time()) % (2 << 32 - 1)
-        print(f"随机种子:{seed}")
+            self.visited[i[0]][i[1]] = True
+        self.barriers = b
+        seed = int(time())
         np.random.seed(seed)
 
-        for i in range(n):
-            for j in range(m):
-                self.X.append(i)
-                self.Y.append(j)
-        self.C = [[0 for j in range(m)] for i in range(n)]
         print(f"地图={n}*{m} 从{f}到{t}\n障碍:{b}")
+        print(f"随机种子:{seed}")
         if not self.nograph:
+            for i in range(n):
+                for j in range(m):
+                    self.X.append(i)
+                    self.Y.append(j)
+            self.C = [[0 for j in range(m)] for i in range(n)]
             se.set()
-            plt.ion()
+            self.gif = []
 
     def Search(self,
                threshold: float = -float("inf"),
@@ -129,9 +141,9 @@ class MCTS:
         """
         # 初始化:bfs表，设置起点，设置路线记录表
         self.trails = [node(self.f[0], self.f[1])]
-        self.visited = deepcopy(self.grid)
         self.visited[self.f[0]][self.f[1]] = True
         self.path = [[None for j in range(self.m)] for i in range(self.n)]
+        self.fig = plt.figure()
 
         if threshold > -float("inf"):
             self.threshold = threshold
@@ -139,9 +151,6 @@ class MCTS:
             self.factor = factor
         if base > -float("inf"):
             self.base = base
-
-        self.ln_fac = np.log(self.factor)
-        self.ln_base = np.log(self.base)
 
         no = 0
         print(f"base:{self.base} factor:{self.factor} threshold:{self.threshold}")
@@ -207,10 +216,8 @@ class MCTS:
 
             if not self.nograph:
                 self.__frame()
-                plt.gca().remove()
-                plt.scatter(self.X, self.Y, s=6000 // self.n //
-                            self.m, c=self.C, cmap='cubehelix')
-                plt.pause(self.sleep)
+                self.gif.append(plt.scatter(self.X, self.Y, s=6000 // self.n //
+                                            self.m, c=self.C, cmap='cubehelix').findobj())
 
         point = self.t
         route = []
@@ -233,9 +240,11 @@ class MCTS:
                 print("\n".join(node_list))
 
         if not self.nograph:
-            plt.plot([i[0] for i in route], [i[1] for i in route])
-            plt.ioff()
-            plt.show()
+            #self.gif.append(plt.plot([i[0] for i in route], [i[1] for i in route]))
+            ani.ArtistAnimation(self.fig, self.gif, interval=int(
+                self.sleep * 1000), repeat_delay=5000).save("MCTS.gif", writer="pillow")
+
+
 
     def CLIEntrance(self,
                     n: int = 15,
@@ -264,6 +273,6 @@ if __name__ == "__main__":
         (13, 5), (12, 5), (11, 5), (11, 6), (11, 7),
         (2, 11), (4, 10), (1, 9), (1, 11), (1, 13),
         (13, 2), (14, 2), (10, 0), (12, 8), (13, 13),
-        ], nograph=False)
+        ], sleep=0.3, nograph=False)
     demo.Search()
 

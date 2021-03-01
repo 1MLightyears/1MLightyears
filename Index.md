@@ -1,3 +1,4 @@
 [toc]
 
 - [NSGA.py](./NSGA.py) & [NSGA2.py](./NSGA2.py) are 2 versions for a Natural Selection Generic Algorithm demo when learning ML lessons. I read the idea, astonished, and finished everything else *ab initio*, and finally I knew that were DEPRECATED:angry: and there was already packages for that!
+- [MCTS.py](./MCTS.py) & [MCTS_gif.py](./MCTS_fig.py) are 2 versions for a pathfinder using Monte Carlo Tree Search. They are ~~deadly~~ slow, and I know A* & Dijkstra are doing much better than that, but MCTS is more likely to be the approach human gonna choose when solving heuristic problems. Researching on this contributes to human-like behavior imitations.<br>[MCTS.py](./MCTS.py) is recommended to be chosen as it gives a window of animation,while [MCTS_gif.py](./MCTS_gif.py) only saves a gif file on local disk.
