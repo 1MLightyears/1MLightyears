@@ -1,4 +1,5 @@
 # 用 Monte Carlo Tree Search解决 寻路问题
+# gif生成版
 # by 1mlightyears@gmail.com
 # 20210215
 
@@ -10,6 +11,15 @@ from time import time
 from copy import deepcopy
 import seaborn as se
 import sys
+
+__all__=["requirements","node","MCTS","demo"]
+
+
+requirements="""fire==0.4.0
+matplotlib=3.3.3
+numpy==1.19.4
+seaborn==0.11.0
+"""
 
 class node:
     def __init__(self,
@@ -240,7 +250,6 @@ class MCTS:
                 print("\n".join(node_list))
 
         if not self.nograph:
-            #self.gif.append(plt.plot([i[0] for i in route], [i[1] for i in route]))
             ani.ArtistAnimation(self.fig, self.gif, interval=int(
                 self.sleep * 1000), repeat_delay=5000).save("MCTS.gif", writer="pillow")
 
@@ -266,13 +275,15 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         Fire(demo.CLIEntrance)
         exit()
-    demo.setMap(15, 15, (0,13), (14,1), [
-        (1, 3), (2, 5), (3, 8), (5, 5), (4, 5),
-        (9, 2), (6, 1), (6, 2), (6, 3), (6, 4),
-        (7, 11), (9, 13), (12, 12), (6, 8), (9, 4),
-        (13, 5), (12, 5), (11, 5), (11, 6), (11, 7),
-        (2, 11), (4, 10), (1, 9), (1, 11), (1, 13),
-        (13, 2), (14, 2), (10, 0), (12, 8), (13, 13),
-        ], sleep=0.3, nograph=False)
-    demo.Search()
+    # demo.setMap(15, 15, (0,13), (14,1), [
+    #     (1, 3), (2, 5), (3, 8), (5, 5), (4, 5),
+    #     (9, 2), (6, 1), (6, 2), (6, 3), (6, 4),
+    #     (7, 11), (9, 13), (12, 12), (6, 8), (9, 4),
+    #     (13, 5), (12, 5), (11, 5), (11, 6), (11, 7),
+    #     (2, 11), (4, 10), (1, 9), (1, 11), (1, 13),
+    #     (13, 2), (14, 2), (10, 0), (12, 8), (13, 13),
+    #     ], sleep=0.3, nograph=False)
+    demo.setMap(20, 20, (1, 2), (18, 19), [(np.random.randint(0,19),np.random.randint(0,19)) for i in range(100)]
+    , sleep=0.2, nograph=False)
+    demo.Search(threshold=5,factor=1.5,base=50)
 

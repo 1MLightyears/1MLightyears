@@ -10,6 +10,15 @@ from copy import deepcopy
 import seaborn as se
 import sys
 
+__all__=["requirements","node","MCTS","demo"]
+
+
+requirements="""fire==0.4.0
+matplotlib=3.3.3
+numpy==1.19.4
+seaborn==0.11.0
+"""
+
 class node:
     def __init__(self,
         x: int = 0,
